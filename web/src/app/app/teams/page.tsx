@@ -1,16 +1,17 @@
 "use client"
 
-import PageNavbar, { PageNavbarIconButton, PageNavbarLeftContent, PageNavbarRightContent } from '@/components/layout/PageNavbar'
+import { PageNavbarIconButton, PageNavbarLeftContent, PageNavbarRightContent } from '@/components/layout/PageNavbar'
 import { Add, ExportCurve, Notification, Profile, SearchNormal1 } from 'iconsax-reactjs'
 import PageContent from '@/components/layout/PageContent'
-import { PrimaryButton, OutlineButton } from '@/components/ui/Button'
+import { PrimaryButton, OutlineButton } from '@/components/ui/Buttons'
 import MembersTable from '@/components/teams/MembersTable'
+import Navbar from '@/components/Navbar'
 
 function Teams() {
 
     return (
         <div className='text-gray-500 w-full'>
-            <PageNavbar>
+            <Navbar>
                 <PageNavbarLeftContent>
                     <div className='border rounded-full w-10 h-10 all-center'>
                         {/* <Setting4 size={18} /> */}
@@ -30,7 +31,7 @@ function Teams() {
                         <Notification size={16} />
                     </PageNavbarIconButton>
                 </PageNavbarRightContent>
-            </PageNavbar>
+            </Navbar>
 
             <PageContent>
                 {/* header */}

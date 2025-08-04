@@ -1,4 +1,4 @@
-import { Book, Diagram } from 'iconsax-reactjs'
+import { Book } from 'iconsax-reactjs'
 import RadialProgress from '../RadialProgress'
 
 function CourseProgress() {

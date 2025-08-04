@@ -12,12 +12,10 @@ function Timer() {
     useEffect(() => {
         if (isPaused) return
 
-        // update time in every 1 second in 00:00:00 format
         const timer = setInterval(() => {
             setTime((time) => time + 1)
         }, 1000)
 
-        // clear interval
         return () => clearInterval(timer)
 
     }, [isPaused])

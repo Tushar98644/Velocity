@@ -1,7 +1,7 @@
 "use client"
 
-import PageNavbar, { PageNavbarIconButton, PageNavbarLeftContent, PageNavbarPrimaryButton, PageNavbarRightContent } from '@/components/layout/PageNavbar'
-import { Add, CalendarEdit, DirectNotification, Notification, SearchNormal1, Setting4 } from 'iconsax-reactjs'
+import { PageNavbarIconButton, PageNavbarLeftContent, PageNavbarPrimaryButton, PageNavbarRightContent } from '@/components/layout/PageNavbar'
+import { Add, CalendarEdit, DirectNotification, SearchNormal1 } from 'iconsax-reactjs'
 import PageContent from '@/components/layout/PageContent'
 import TraningAnalysis from '@/components/Cards/TraningAnalysis'
 import CourseProgress from '@/components/Cards/CourseProgress'
@@ -12,27 +12,26 @@ import StatusTracker from '@/components/Cards/StatusTracker'
 import CurrentProject from '@/components/Cards/CurrentProject'
 import ProfileImage from '@/components/assets/profile.png'
 import Image from 'next/image'
-import { OutlineButton } from '@/components/ui/Button'
+import { OutlineButton } from '@/components/ui/Buttons'
+import Navbar from '@/components/Navbar'
 
 function Dashboard() {
 
     return (
         <div>
-            <PageNavbar>
+            <Navbar>
                 <PageNavbarLeftContent>
-                    {/* <div className='flex items-center justify-between gap-2'> */}
-                        <Image
-                            src={ProfileImage}
-                            alt='User'
-                            width={40}
-                            height={40}
-                            className='rounded-full'
-                        />
-                        <div className=''>
-                            <p className='text-sm font-semibold text-gray-800'>Steve Jobs</p>
-                            <p className='text-xs font-medium text-gray-500'>Welcome back</p>
-                        </div>
-                    {/* </div> */}
+                    <Image
+                        src={ProfileImage}
+                        alt='User'
+                        width={40}
+                        height={40}
+                        className='rounded-full'
+                    />
+                    <div className=''>
+                        <p className='text-sm font-semibold text-gray-800'>Tushar Banik</p>
+                        <p className='text-xs font-medium text-gray-500'>Welcome back</p>
+                    </div>
                 </PageNavbarLeftContent>
 
                 <PageNavbarRightContent>
@@ -54,7 +53,7 @@ function Dashboard() {
                         <span className='hidden md:inline'>Create request</span>
                     </PageNavbarPrimaryButton>
                 </PageNavbarRightContent>
-            </PageNavbar>
+            </Navbar>
 
             <PageContent>
                 <div className='space-y-4 columns-1 sm:columns-2 lg:columns-3'>

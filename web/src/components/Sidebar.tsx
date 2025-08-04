@@ -1,22 +1,22 @@
 "use client"
 
 import Image from 'next/image'
-import { ArrowRight2, Calendar, Document, Element3, Folder2, Headphone, Profile2User, Setting2, Setting4, Star, Timer1, Triangle } from 'iconsax-reactjs'
+import { ArrowRight2, Calendar, Element3, Headphone, Profile2User, Setting2, Setting4, Triangle } from 'iconsax-reactjs'
 import ProfileImage from '../components/assets/profile.png'
-import Link, { LinkProps } from 'next/link'
+import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { useCentralStore } from '@/Store'
 import React from 'react'
+import {
+    Popover,
+    PopoverContent,
+    PopoverTrigger,
+} from "@/components/ui/popover"
+import { authClient } from '@/lib/auth.client'
+import { useRouter } from 'next/navigation'
 
-
-function Sidebar() {
-
+const Sidebar = () => {
     const pathname = usePathname()
-    const { setIsSidebarOpen, isSidebarOpen } = useCentralStore()
-
-    // useEffect(() => {
-    //     if (!isSidebarOpen) setIsSidebarOpen(!isSidebarOpen)
-    // }, [pathname])
+    const router = useRouter()
 
     return (
         <div className='w-60 shrink-0 md:block h-screen sticky top-0 overflow-hidden'>
@@ -58,26 +58,6 @@ function Sidebar() {
                             <Calendar size={16} />
                             Calendar
                         </button>
-
-                        <button disabled className={`flex ${pathname === '/app/timeoff' ? 'text-primary' : ''} hover:px-8 disabled:opacity-60 duration-200 px-6 py-2 items-center gap-2`}>
-                            <Timer1 size={16} />
-                            Time Off
-                        </button>
-
-                        <button disabled className={`flex ${pathname === '/app/projects' ? 'text-primary' : ''} hover:px-8 disabled:opacity-60 duration-200 px-6 py-2 items-center gap-2`}>
-                            <Folder2 size={16} />
-                            Projects
-                        </button>
-
-                        <button disabled className={`flex ${pathname === '/app/benefits' ? 'text-primary' : ''} hover:px-8 disabled:opacity-60 duration-200 px-6 py-2 items-center gap-2`}>
-                            <Star size={16} />
-                            Benefits
-                        </button>
-
-                        <button disabled className={`flex ${pathname === '/app/documents' ? 'text-primary' : ''} hover:px-8 disabled:opacity-60 duration-200 px-6 py-2 items-center gap-2`}>
-                            <Document size={16} />
-                            Documents
-                        </button>
                     </div>
 
                     <div>
@@ -106,47 +86,47 @@ function Sidebar() {
                                     className='rounded-full'
                                 />
                                 <div className=''>
-                                    <p className='text-sm font-semibold text-gray-800'>Steve Jobs</p>
+                                    <p className='text-sm font-semibold text-gray-800'>Tushar Banik</p>
                                     <p className='text-xs font-medium text-gray-500'>steve@apple.com</p>
                                 </div>
                             </div>
 
-                            <button className='text-gray-500'>
-                                <ArrowRight2 size={16} />
-                            </button>
+                            <Popover>
+                                <PopoverTrigger className='text-gray-500 hover:text-primary transition-colors'>
+                                    <ArrowRight2 size={18} />
+                                </PopoverTrigger>
+
+                                <PopoverContent className='w-48 rounded-xl shadow-xl border border-gray-200 bg-white p-4 space-y-2 text-sm animate-in fade-in zoom-in'>
+
+                                    <Link
+                                        href='/app/profile'
+                                        className='block px-3 py-1.5 rounded-md text-gray-700 hover:bg-gray-50 hover:text-primary transition'
+                                    >
+                                        My Profile
+                                    </Link>
+
+                                    <Link
+                                        href='/app/settings'
+                                        className='block px-3 py-1.5 rounded-md text-gray-700 hover:bg-gray-50 hover:text-primary transition'
+                                    >
+                                        Settings
+                                    </Link>
+                                    <button
+                                        onClick={async () => await authClient.signOut(
+                                            { fetchOptions: { onSuccess: () => router.push('/') } }
+                                        )}
+                                        className='block px-3 py-1.5 rounded-md text-red-500 hover:bg-red-50 hover:text-red-600 transition'
+                                    >
+                                        Sign Out
+                                    </button>
+                                </PopoverContent>
+                            </Popover>
                         </div>
                     </div>
-
                 </div>
-
             </div>
         </div>
     )
 }
-
-
-const NavbarLink = ({ href, active }: { href: string, active: boolean }) => {
-    return (
-        <Link
-            href={href}
-
-        >
-
-        </Link>
-    )
-}
-
-const NavLink = React.forwardRef<
-    LinkProps,
-    React.ComponentPropsWithoutRef<'a'>>
-    (({ className, href, ...props }) =>
-        <Link
-            href={href!}
-            className={`flex ${window.location.pathname === href! ? 'text-primary' : ''} hover:px-8 duration-200 rounded-md w-full py-2 px-6 items-center gap-2`}
-            {...props}
-        />
-    )
-NavLink.displayName = 'NavLink'
-
 
 export default Sidebar
