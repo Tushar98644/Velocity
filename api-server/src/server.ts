@@ -4,7 +4,7 @@ import morgan from 'morgan';
 import cors from 'cors';
 import 'dotenv/config';
 import { toNodeHandler } from 'better-auth/node';
-import { auth } from './config/auth.config';
+import { auth } from './config/auth.config.js';
 
 const app = express();
 
