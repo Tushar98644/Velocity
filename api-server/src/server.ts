@@ -21,8 +21,12 @@ app.use(helmet());
 app.use(express.urlencoded({ extended: true }));
 app.use(morgan("dev"));
 
+app.get('/', (req, res) => {
+    res.send('API Server is running');
+});
+
 const PORT = process.env.PORT;
 
 app.listen(PORT, () => {
-  console.log(`API Server is running on http://localhost:${PORT}`);
+  console.log(`API Server is running on ${process.env.BETTER_AUTH_URL || `http://localhost:${PORT}`}`);
 });
