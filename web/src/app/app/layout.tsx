@@ -1,13 +1,13 @@
 "use client"
 
-import React, { useState } from "react"
+import React from "react"
 import { AnimatePresence, motion } from "framer-motion"
 import Sidebar from "@/components/Sidebar"
 import { useCentralStore } from "@/Store"
 
 const AppLayout = ({ children }: { children: React.ReactNode }) => {
 
-    const { isSidebarOpen, toggleSidebar, setIsSidebarOpen } = useCentralStore()
+    const { isSidebarOpen, setIsSidebarOpen } = useCentralStore()
 
     return (
         <motion.div initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}
