@@ -1,7 +1,6 @@
 import React from "react"
 import cn from "mxcn"
 
-
 const TableItem = React.forwardRef<HTMLTableCellElement, React.ComponentPropsWithoutRef<'td'>>(({ className, ...props }, ref) =>
     <td
         ref={ref}
