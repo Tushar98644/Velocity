@@ -113,7 +113,7 @@ const Sidebar = () => {
                                     </Link>
                                     <button
                                         onClick={async () => await authClient.signOut(
-                                            { fetchOptions: { onSuccess: () => router.push('/') } }
+                                            { fetchOptions: { onSuccess: () => router.push('/login') } }
                                         )}
                                         className='block px-3 py-1.5 rounded-md text-red-500 hover:bg-red-50 hover:text-red-600 transition'
                                     >
