@@ -18,6 +18,7 @@ export function LoginForm({
       <div className="grid gap-4">
         <Button variant="outline" onClick={async () => await authClient.signIn.social({
           provider: "github",
+          callbackURL: `${process.env.NEXT_PUBLIC_CLIENT_URL}/app/dashboard`
         })} className="w-full">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
             <path
@@ -29,7 +30,7 @@ export function LoginForm({
         </Button>
         <Button onClick={async () => await authClient.signIn.social({
           provider: "google",
-          callbackURL: 'http://localhost:3000/app/dashboard'
+          callbackURL: `${process.env.NEXT_PUBLIC_CLIENT_URL}/app/dashboard`
         })} variant="outline" className="w-full">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
             <path
