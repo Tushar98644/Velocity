@@ -9,7 +9,7 @@ import { auth } from './config/auth.config.js';
 const app = express();
 
 const corsOptions = {
-    origin: '*',
+    origin: process.env.BETTER_AUTH_URL,
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     credentials: true,
 };
