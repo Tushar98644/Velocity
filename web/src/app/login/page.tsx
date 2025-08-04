@@ -1,9 +1,10 @@
-import { GalleryVerticalEnd } from "lucide-react"
+'use client'
 
+import { GalleryVerticalEnd } from "lucide-react"
 import { LoginForm } from "@/components/LoginForm"
 import Image from "next/image"
 
-export default function LoginPage() {
+const LoginPage = () => {
   return (
     <div className="grid min-h-svh lg:grid-cols-2">
       <div className="flex flex-col gap-4 p-6 md:p-10">
@@ -32,3 +33,5 @@ export default function LoginPage() {
     </div>
   )
 }
+
+export default LoginPage;

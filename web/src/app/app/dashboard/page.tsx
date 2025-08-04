@@ -14,9 +14,11 @@ import ProfileImage from '@/components/assets/profile.png'
 import Image from 'next/image'
 import { OutlineButton } from '@/components/ui/Buttons'
 import Navbar from '@/components/Navbar'
+import { authClient } from '@/lib/auth.client'
 
 function Dashboard() {
-
+    const { data: session, isPending } = authClient.useSession();
+    console.log(session);
     return (
         <div>
             <Navbar>
