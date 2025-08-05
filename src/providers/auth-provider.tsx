@@ -2,14 +2,14 @@
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 import { usePathname } from "next/navigation";
-import { authClient } from "@/lib/auth.client";
+import { useSession } from "@/lib/auth.client";
 
 export const AuthProvider = ({
     children,
 }: {
     children: React.ReactNode;
 }) => {
-    const { isPending, data: session } = authClient.useSession();
+    const { isPending, data: session } = useSession();
     console.log(isPending);
     console.log(session);
     const pathname = usePathname();

@@ -6,17 +6,21 @@ import ProfileImage from '../components/assets/profile.png'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import React from 'react'
-import {
-    Popover,
-    PopoverContent,
-    PopoverTrigger,
-} from "@/components/ui/popover"
-import { authClient } from '@/lib/auth.client'
+import { Popover,PopoverContent,PopoverTrigger } from "@/components/ui/popover"
 import { useRouter } from 'next/navigation'
+import { signOut } from '@/lib/auth.client'
 
 const Sidebar = () => {
     const pathname = usePathname()
-    const router = useRouter()
+    const router = useRouter();
+
+    const handleSignOut = async () => {
+        try {
+            await signOut()
+        } catch (error) {
+            console.error("Failed to sign out:", error)
+        }
+    }
 
     return (
         <div className='w-60 shrink-0 md:block h-screen sticky top-0 overflow-hidden'>
@@ -111,10 +115,7 @@ const Sidebar = () => {
                                     >
                                         Settings
                                     </Link>
-                                    <button
-                                        onClick={async () => await authClient.signOut(
-                                            { fetchOptions: { onSuccess: () => router.push('/login') } }
-                                        )}
+                                    <button onClick={handleSignOut}
                                         className='block px-3 py-1.5 rounded-md text-red-500 hover:bg-red-50 hover:text-red-600 transition'
                                     >
                                         Sign Out
