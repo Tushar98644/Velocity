@@ -8,102 +8,63 @@ import SlackLogo from '@/components/assets/logos/slack.svg'
 import GithubLogo from '@/components/assets/logos/github.svg'
 
 function IntegrationsList() {
-    return (
-        <div className='text-sm grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4'>
+  // Helper for integration entries (for DRYness)
+  const integrations = [
+    {
+      logo: MSOfficeLogo,
+      name: 'Microsoft Office 365',
+      desc: 'Seamless document management',
+      isActive: true,
+    },
+    {
+      logo: ZoomLogo,
+      name: 'Zoom',
+      desc: 'For conducting virtual meetings and interviews',
+      isActive: false,
+    },
+    {
+      logo: SlackLogo,
+      name: 'Slack',
+      desc: 'For team communication and real-time collaboration',
+      isActive: false,
+    },
+    {
+      logo: GithubLogo,
+      name: 'Github',
+      desc: 'For hosting and managing code',
+      isActive: false,
+    },
+  ]
 
-            {/* app 1 */}
-            <div className='border rounded-xl flex flex-col justify-between p-2.5 space-y-2'>
-                <div className='space-y-2'>
-                    <div className='flex items-center justify-between'>
-                        <div className='p-1.5 border rounded-md w-8 h-8 flex items-center justify-center'>
-                            <Image src={MSOfficeLogo} alt='MS Office' />
-                        </div>
-                        <ToggleSwitch isActive />
-                    </div>
-
-                    <div>
-                        <h1 className='text-gray-800 font-medium'>Microsoft Office 365</h1>
-                        <p className='text-xs text-gray-500'>Seamless document management</p>
-                    </div>
-                </div>
-
-                <button className='flex text-xs group text-gray-500 font-medium rounded-lg w-full items-center justify-center gap-1 border px-2 py-1'>
-                    <Setting2 size={16} className='group-hover:rotate-90 duration-300' />
-                    <span>Manage</span>
-                </button>
+  return (
+    <div className="text-sm grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      {integrations.map(({ logo, name, desc, isActive }, i) => (
+        <div
+          key={name}
+          className="border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 rounded-xl flex flex-col justify-between p-3 space-y-2 transition-colors"
+        >
+          <div className="space-y-2">
+            <div className="flex items-center justify-between">
+              <div className="p-2 border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-white rounded-md w-9 h-9 flex items-center justify-center">
+                <Image src={logo} alt={name} />
+              </div>
+              <ToggleSwitch
+                isActive={isActive}
+              />
             </div>
-
-            {/* app 2 */}
-            <div className='border rounded-xl flex flex-col justify-between p-2.5 space-y-2'>
-                <div className='space-y-2'>
-                    <div className='flex items-center justify-between'>
-                        <div className='p-1.5 border rounded-md w-8 h-8 flex items-center justify-center'>
-                            <Image src={ZoomLogo} alt='Zoom' />
-                        </div>
-                        <ToggleSwitch isActive={false} />
-                    </div>
-
-                    <div>
-                        <h1 className='text-gray-800 font-medium'>Zoom</h1>
-                        <p className='text-xs text-gray-500'>For conducting virtual meetings and interviews</p>
-                    </div>
-                </div>
-
-                <button className='flex text-xs group text-gray-500 font-medium rounded-lg w-full items-center justify-center gap-1 border px-2 py-1'>
-                    <Setting2 size={16} className='group-hover:rotate-90 duration-300' />
-                    <span>Manage</span>
-                </button>
-
+            <div>
+              <h1 className="text-gray-900 dark:text-white font-semibold">{name}</h1>
+              <p className="text-xs text-gray-500 dark:text-gray-400">{desc}</p>
             </div>
-
-            {/* app 3 */}
-            <div className='border rounded-xl flex flex-col justify-between p-2.5 space-y-2'>
-                <div className='space-y-2'>
-                    <div className='flex items-center justify-between'>
-                        <div className='p-1.5 border rounded-md w-8 h-8 flex items-center justify-center'>
-                            <Image src={SlackLogo} alt='Slack' />
-                        </div>
-                        <ToggleSwitch isActive={false} />
-                    </div>
-
-                    <div>
-                        <h1 className='text-gray-800 font-medium'>Slack</h1>
-                        <p className='text-xs text-gray-500'>For team communication and real-time collaboration</p>
-                    </div>
-                </div>
-
-                <button className='flex text-xs group text-gray-500 font-medium rounded-lg w-full items-center justify-center gap-1 border px-2 py-1'>
-                    <Setting2 size={16} className='group-hover:rotate-90 duration-300' />
-                    <span>Manage</span>
-                </button>
-
-            </div>
-
-            {/* app 4 */}
-            <div className='border rounded-xl flex flex-col justify-between p-2.5 space-y-2'>
-                <div className='space-y-2'>
-                    <div className='flex items-center justify-between'>
-                        <div className='p-1.5 border rounded-md w-8 h-8 flex items-center justify-center'>
-                            <Image src={GithubLogo} alt='Github' />
-                        </div>
-                        <ToggleSwitch isActive={false} />
-                    </div>
-
-                    <div>
-                        <h1 className='text-gray-800 font-medium'>Github</h1>
-                        <p className='text-xs text-gray-500'>For hosting and managing code</p>
-                    </div>
-                </div>
-
-                <button className='flex text-xs group text-gray-500 font-medium rounded-lg w-full items-center justify-center gap-1 border px-2 py-1'>
-                    <Setting2 size={15} className='group-hover:rotate-90 duration-300' />
-                    <span>Manage</span>
-                </button>
-
-            </div>
-
+          </div>
+          <button className="flex text-xs group text-gray-700 dark:text-gray-200 font-medium rounded-lg w-full items-center justify-center gap-2 border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900 px-2 py-1 transition-colors hover:bg-gray-100 dark:hover:bg-gray-700">
+            <Setting2 size={16} className="group-hover:rotate-90 duration-300 text-violet-500 dark:text-violet-400" />
+            <span>Manage</span>
+          </button>
         </div>
-    )
+      ))}
+    </div>
+  )
 }
 
 export default IntegrationsList
