@@ -2,6 +2,7 @@ import React from 'react'
 import { SidebarLeft } from 'iconsax-reactjs'
 import { useCentralStore } from '@/Store'
 import { ThemeToggle } from './theme-toggle'
+import { UserButton } from '@clerk/nextjs'
 
 const Navbar = ({ children }: { children: React.ReactNode }) => {
   const { setIsSidebarOpen } = useCentralStore()
@@ -19,7 +20,8 @@ const Navbar = ({ children }: { children: React.ReactNode }) => {
           </button>
         </div>
 
-        <div className='ml-auto'>
+        <div className='flex flex-row gap-4 ml-auto'>
+          <UserButton></UserButton>
           <ThemeToggle />
         </div>
       </div>
