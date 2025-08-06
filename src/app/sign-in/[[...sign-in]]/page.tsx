@@ -1,8 +1,8 @@
 'use client'
 
 import { GalleryVerticalEnd } from "lucide-react"
-import { LoginForm } from "@/components/LoginForm"
 import Image from "next/image"
+import { SignIn } from "@clerk/nextjs"
 
 const LoginPage = () => {
   return (
@@ -18,7 +18,7 @@ const LoginPage = () => {
         </div>
         <div className="flex flex-1 items-center justify-center">
           <div className="w-full max-w-xs">
-            <LoginForm />
+            <SignIn />
           </div>
         </div>
       </div>
