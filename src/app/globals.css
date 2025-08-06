@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 :root {
-  --h-nav: 90px;
+  --h-nav: 80px;
 }
 
 .all-center {

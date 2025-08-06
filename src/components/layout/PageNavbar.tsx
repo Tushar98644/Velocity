@@ -38,16 +38,4 @@ const PageNavbarIconButton = React.forwardRef<
 
 PageNavbarIconButton.displayName = 'PageNavbarIconButton'
 
-const PageNavbarPrimaryButton = React.forwardRef<
-    HTMLButtonElement,
-    React.ComponentPropsWithoutRef<'button'>>
-    (({ className, ...props }, ref) =>
-        <button
-            ref={ref}
-            className='h-8 gap-1 bg-primary hidden py-1 px-2 duration-200 text-white rounded-lg text-xs md:flex items-center justify-center'
-            {...props}
-        />
-    )
-PageNavbarPrimaryButton.displayName = 'PageNavbarPrimaryButton'
-
-export { PageNavbarLeftContent, PageNavbarRightContent, PageNavbarIconButton, PageNavbarPrimaryButton }
+export { PageNavbarLeftContent, PageNavbarRightContent, PageNavbarIconButton }

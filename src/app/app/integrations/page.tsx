@@ -1,13 +1,14 @@
 "use client"
 
-import { PageNavbarIconButton, PageNavbarLeftContent, PageNavbarPrimaryButton, PageNavbarRightContent } from '@/components/layout/PageNavbar'
+import { PageNavbarIconButton, PageNavbarLeftContent, PageNavbarRightContent } from '@/components/layout/PageNavbar'
 import { Add, Notification, SearchNormal1, Setting4 } from 'iconsax-reactjs'
 import PageContent from '@/components/layout/PageContent'
 import Tabs from '@/components/Cards/ui/tabs'
 import IntegrationsList from '@/components/integrations/IntegrationsList'
 import Navbar from '@/components/Navbar'
+import { PrimaryButton } from '@/components/ui/Buttons'
 
-function Integrations() {
+const Integrations = () => {
     return (
         <div>
             <Navbar>
@@ -28,10 +29,10 @@ function Integrations() {
                     <PageNavbarIconButton>
                         <Notification size={16} />
                     </PageNavbarIconButton>
-                    <PageNavbarPrimaryButton>
+                    <PrimaryButton>
                         <Add size={16} />
                         <span className='hidden md:inline'>Add integration</span>
-                    </PageNavbarPrimaryButton>
+                    </PrimaryButton>
                 </PageNavbarRightContent>
             </Navbar>
 

@@ -35,8 +35,8 @@ const Sidebar = () => {
             <Triangle size={24} className='relative group-hover:scale-75 duration-200' />
           </div>
           <div>
-            <h1 className='text-sm font-bold text-gray-800 dark:text-white'>Githr</h1>
-            <p className='text-xs text-gray-500 dark:text-gray-400 font-medium'>HR Management</p>
+            <h1 className='text-sm font-bold text-gray-800 dark:text-white'>Velocity</h1>
+            <p className='text-xs text-gray-500 dark:text-gray-400 font-medium'>AI Analytics Platform</p>
           </div>
         </div>
 

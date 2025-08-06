@@ -3,7 +3,6 @@
 import {
   PageNavbarIconButton,
   PageNavbarLeftContent,
-  PageNavbarPrimaryButton,
   PageNavbarRightContent,
 } from '@/components/layout/PageNavbar'
 import {
@@ -22,12 +21,12 @@ import StatusTracker from '@/components/Cards/StatusTracker'
 import CurrentProject from '@/components/Cards/CurrentProject'
 import ProfileImage from '@/components/assets/profile.png'
 import Image from 'next/image'
-import { OutlineButton } from '@/components/ui/Buttons'
+import { OutlineButton, PrimaryButton } from '@/components/ui/Buttons'
 import Navbar from '@/components/Navbar'
 
 const Dashboard = () => {
   return (
-    <div className="bg-white dark:bg-gray-900 min-h-screen">
+    <div className="min-h-screen bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-100">
       <Navbar>
         <PageNavbarLeftContent>
           <Image
@@ -38,7 +37,7 @@ const Dashboard = () => {
             className="rounded-full"
           />
           <div>
-            <p className="text-sm font-semibold text-gray-800 dark:text-gray-100">
+            <p className="text-sm font-semibold text-gray-800 dark:text-white">
               Tushar Banik
             </p>
             <p className="text-xs font-medium text-gray-500 dark:text-gray-400">
@@ -48,23 +47,23 @@ const Dashboard = () => {
         </PageNavbarLeftContent>
 
         <PageNavbarRightContent>
-          <PageNavbarIconButton className="all-center h-8 w-8 duration-200 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg">
+          <PageNavbarIconButton className="all-center h-8 w-8 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-200">
             <SearchNormal1 size={16} className="text-gray-700 dark:text-gray-200" />
           </PageNavbarIconButton>
 
-          <PageNavbarIconButton className="all-center h-8 w-8 duration-200 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg">
+          <PageNavbarIconButton className="all-center h-8 w-8 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-200">
             <DirectNotification size={16} className="text-gray-700 dark:text-gray-200" />
           </PageNavbarIconButton>
 
-          <OutlineButton className="h-8 w-8 gap-1 md:w-auto md:border py-1 px-2 duration-200 hover:bg-gray-100 dark:hover:bg-gray-700 dark:border-gray-600 rounded-lg text-xs all-center dark:text-white">
+          <OutlineButton className="h-8 w-8 gap-1 md:w-auto py-1 px-2 rounded-lg border md:border hover:bg-gray-100 dark:border-gray-600 dark:hover:bg-gray-700 text-xs all-center transition-colors duration-200 dark:text-white">
             <CalendarEdit size={16} />
             <span className="hidden md:inline">Schedule</span>
           </OutlineButton>
 
-          <PageNavbarPrimaryButton className="h-8 gap-1 bg-primary hidden py-1 px-2 duration-200 text-white rounded-lg text-xs md:flex items-center justify-center dark:bg-indigo-600">
+          <PrimaryButton className="hidden md:flex items-center justify-center h-8 gap-1 py-1 px-2 text-xs text-white bg-primary rounded-lg transition-colors duration-200 dark:bg-indigo-600">
             <Add size={16} />
             <span className="hidden md:inline">Create request</span>
-          </PageNavbarPrimaryButton>
+          </PrimaryButton>
         </PageNavbarRightContent>
       </Navbar>
 
