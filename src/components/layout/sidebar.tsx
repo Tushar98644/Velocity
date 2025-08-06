@@ -4,6 +4,7 @@ import {
   Calendar,
   Element3,
   Headphone,
+  Profile,
   Profile2User,
   Setting2,
   Setting4,
@@ -56,6 +57,13 @@ const Sidebar = () => {
                 hover:px-8 duration-200 px-6 py-2 items-center gap-2`}>
               <Setting4 size={16} />
               Integrations
+            </Link>
+
+            <Link href='/dashboard/profile'
+              className={`flex ${pathname === '/dashboard/profile' ? 'text-primary' : ''}
+                hover:px-8 duration-200 px-6 py-2 items-center gap-2`}>
+              <Profile size={16} />
+               Profile
             </Link>
 
             <button disabled
